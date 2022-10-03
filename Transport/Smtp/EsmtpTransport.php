@@ -99,6 +99,13 @@ class EsmtpTransport extends SmtpTransport
     {
         $this->authenticators[] = $authenticator;
     }
+    
+    public function setXOAuthAuthenticators(): void
+	{
+		$this->authenticators = [
+			new Auth\XOAuth2Authenticator()
+		];
+	}
 
     public function executeCommand(string $command, array $codes): string
     {
